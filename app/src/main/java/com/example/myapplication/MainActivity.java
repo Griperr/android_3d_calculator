@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,8 +76,14 @@ public class MainActivity extends AppCompatActivity {
             String taxSTR = Float.toString(totalTax);
             taxText.setText(taxSTR);
 
+
+
         }
         catch (Exception e) {
+
+            String a ="Some fields not filled";
+            Toast.makeText(MainActivity.this,a+"" ,Toast.LENGTH_LONG).show();
+
             _profit=0;
             _tax=0;
             _material_price=0;
