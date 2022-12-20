@@ -36,30 +36,23 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("SQLiteString")
     @Override
-    protected void onStart() {
+    protected void onStart() {   // ta funkcja odpala się za każdym razem jak ten ekran jest
+        // widoczny dla użytkownika
         super.onStart();
 
 
-        SQLiteDatabase settings_db =openOrCreateDatabase("settings.db", Context.MODE_PRIVATE,null);
+        SQLiteDatabase settings_db =openOrCreateDatabase("settings.db", Context.MODE_PRIVATE,
+                null); // tutaj otwierana jest baza danych
         settings_db.execSQL("CREATE TABLE IF NOT EXISTS 'Settings' (id INTEGER PRIMARY KEY CHECK (id = 0 )," +
                 " Printer_name STRING, Price_4_kWh STRING,  Material_name STRING, Price_of_material," +
-                " Currency STRING, Printer_power STRING, Profit_margin STRING, Tax STRING)");
-
-        ContentValues cv = new ContentValues();
-
-        cv.put("Printer_name",_printer_name);
-        cv.put("Price_4_kWh",_price4kWh);
-        cv.put("Material_name", _material_name);
-        cv.put("Price_of_material", _material_price);
-        cv.put("Currency", _currency);
-        cv.put("Printer_power", _printer_power);
-        cv.put("Profit_margin", _profit);
-        cv.put("Tax",_tax);
-
-        settings_db.update("Settings",cv,"id = ?",new String[]{"0"});
+                " Currency STRING, Printer_power STRING, Profit_margin STRING, Tax STRING)"); //
+        // Tu tworzę tabele jeżeli jeszcze jej nie ma
 
 
-        settings_db.close();
+
+
+
+        settings_db.close(); // tu zamykam bazę
     }
 
 
@@ -68,19 +61,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void GoToSettings (View WWW){
+    public void GoToSettings (View WWW){ // przejście do settingsów
         Intent screen = new Intent(this,Settings_class.class);
         startActivity(screen);
 
 
     }
 
-    public void Test (View WWW){
+    public void Test (View WWW){ // testowa funkcja żeby nie trzeba było psuć już istniejących
 
 
     }
 
-    public void Calc_cost(View WWW){
+    public void Calc_cost(View WWW){  //tutaj się dzieje matematyka
 
         try {
             TextView costText =  findViewById(R.id.Cost);
@@ -130,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-public  void ErrorToast(){
+public  void ErrorToast(){ //funkcja do powiadomienia użytkownika o braku danych.
     String a ="Some fields not filled";
     if(_printer_power==0.0 || _profit==0.0 || _tax==0.0 || _price4kWh==0.0 || _material_price==0.0){
         Toast.makeText(MainActivity.this,a+"" ,Toast.LENGTH_LONG).show();
