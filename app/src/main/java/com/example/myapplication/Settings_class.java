@@ -6,10 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Settings_class extends AppCompatActivity {
@@ -74,6 +76,7 @@ public class Settings_class extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void GoToMain (View WWW){
         Intent main = new Intent(this, MainActivity.class);
         startActivity(main);

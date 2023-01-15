@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/system_neutral1_300"
     tools:context=".MainActivity">
 
     <TextView
@@ -31,10 +32,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="51dp"
+        android:background="@color/white"
         android:ems="10"
+        android:hint="Print time in mins"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="0"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,10 +46,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
         android:layout_marginTop="11dp"
+        android:background="@color/white"
         android:ems="10"
+        android:hint="Print mass in grams"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="0"
         app:layout_constraintEnd_toEndOf="@+id/PrintTime"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/PrintTime" />
@@ -75,14 +78,6 @@
         app:layout_constraintEnd_toEndOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-    <TextView
-        android:id="@+id/Cost"
-        android:layout_width="72dp"
-        android:layout_height="20dp"
-        android:background="@android:drawable/screen_background_light_transparent"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/CostMargin" />
 
     <TextView
         android:id="@+id/Currency"
@@ -126,7 +121,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintStart_toStartOf="@+id/Price" />
+        app:layout_constraintEnd_toEndOf="@+id/Cost"
+        app:layout_constraintStart_toStartOf="@+id/Cost" />
 
     <TextView
         android:id="@+id/textView9"
@@ -160,5 +156,13 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/Calculate_btn"
         app:layout_constraintTop_toTopOf="@+id/Calculate_btn" />
+
+    <TextView
+        android:id="@+id/Cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/textView3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
